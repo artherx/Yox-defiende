@@ -7,6 +7,8 @@ public class Golpe : MonoBehaviour
 {
     [SerializeField] private Animator Animacion;
     [SerializeField] private Camera cam;
+    [SerializeField] private Collider2D puñogo;
+    //private int Vida = 100;
     private void Start()
     {
         cam = Camera.main;
@@ -14,12 +16,16 @@ public class Golpe : MonoBehaviour
     }
     private void Update()
     {
-        if (!Touchscreen.current.primaryTouch.press.isPressed) return;
-
+        if (!Touchscreen.current.primaryTouch.press.isPressed) 
+        {
+            Animacion.SetBool("Golpe", false);
+            puñogo.enabled = false;
+            return; 
+        }
+        puñogo.enabled = true;
         Vector2 posicionToque = Touchscreen.current.primaryTouch.position.ReadValue();
         Vector3 posicionMundo = cam.ScreenToWorldPoint(posicionToque);
-        Animacion.SetBool("Golpe", Input.touchCount!=0);
+        Animacion.SetBool("Golpe", true);
         Debug.Log(posicionMundo);
     }
-
 }
