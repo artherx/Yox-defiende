@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,8 @@ public class Golpe : MonoBehaviour
 {
     [SerializeField] private Animator Animacion;
     [SerializeField] private Camera cam;
-    [SerializeField] private Collider2D puñogo;
-    //private int Vida = 100;
+    [SerializeField] private Collider2D puogo;
+    private int Vida = 100;
     private void Start()
     {
         cam = Camera.main;
@@ -19,13 +20,18 @@ public class Golpe : MonoBehaviour
         if (!Touchscreen.current.primaryTouch.press.isPressed) 
         {
             Animacion.SetBool("Golpe", false);
-            puñogo.enabled = false;
+            puogo.enabled = false;
             return; 
         }
-        puñogo.enabled = true;
+        puogo.enabled = true;
         Vector2 posicionToque = Touchscreen.current.primaryTouch.position.ReadValue();
         Vector3 posicionMundo = cam.ScreenToWorldPoint(posicionToque);
         Animacion.SetBool("Golpe", true);
         Debug.Log(posicionMundo);
+    }
+    public void Toque(Boolean toq){
+        if(toq == false) return;
+        Vida-=15;
+        if(Vida<1) Destroy(gameObject);
     }
 }
