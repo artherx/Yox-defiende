@@ -27,7 +27,7 @@ public class Golpe : MonoBehaviour
         Vector2 posicionToque = Touchscreen.current.primaryTouch.position.ReadValue();
         Vector3 posicionMundo = cam.ScreenToWorldPoint(posicionToque);
         Animacion.SetBool("Golpe", true);
-        Debug.Log(posicionMundo);
+        //Debug.Log(posicionMundo);
     }
     public void Toque(Boolean toq){
         if(toq == false) return;

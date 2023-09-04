@@ -12,7 +12,7 @@ public class DetectarGolpe : MonoBehaviour
 
             Patogeno patogeno = collision.gameObject.GetComponent<Patogeno>();
             patogeno.PushBack(push);
-            Debug.Log("ha golpeado");
+            //Debug.Log("ha golpeado");
         }
     }
 

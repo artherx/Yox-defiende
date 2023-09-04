@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Patogeno : MonoBehaviour
 {
     [SerializeField] private VIDABac barraVida;
-    [SerializeField] private DatoVBac datoVBac;
 
     public float speed = 4;
-    private int Vida = 150;
+    private float Vida = 150;
     private Vector3 initialPosition;
 
 
@@ -21,7 +21,6 @@ public class Patogeno : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         initialPosition = transform.position;
         barraVida.IniciarBarras(Vida);
-        datoVBac.IniciarBarras(Vida);
 
     }
 
@@ -41,7 +40,6 @@ public class Patogeno : MonoBehaviour
                Vida += 15;
                if(Vida >150) Vida=150;
                barraVida.editVB(Vida);
-               datoVBac.editVB(Vida);
             }
         }
     }
@@ -52,14 +50,14 @@ public class Patogeno : MonoBehaviour
         Vida -= 25;
         if(Vida < 0) Vida=0;
         barraVida.editVB(Vida);
-        datoVBac.editVB(Vida);
         if(speed>=1.5) speed = speed * 80 / 100;
-        Debug.Log(Vida);
+        //Debug.Log(Vida);
         if (Vida < 1)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
-        Debug.Log(pushDirection);
+        //Debug.Log(pushDirection);
     }
 
 }
