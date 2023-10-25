@@ -12,6 +12,7 @@ public class EmailSender : MonoBehaviour
 {
     public TMP_InputField tMP_InputField;
 
+    
     public void SendEmail()
     {
         string recipientEmail = tMP_InputField.text;
@@ -40,7 +41,7 @@ public class EmailSender : MonoBehaviour
         {
             smtpServer.Send(mail);
             Debug.Log("Correo enviado exitosamente a " + recipientEmail);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-5);
         }
         catch (Exception e)
         {
@@ -49,6 +50,14 @@ public class EmailSender : MonoBehaviour
     }
     public void cancelar(){
             Debug.Log("Ha salido");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-5);
+    }
+    public void atra(){
+            Debug.Log("Ha salido");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+    }
+    public String GetString()
+    {
+        return tMP_InputField.text;
     }
 }

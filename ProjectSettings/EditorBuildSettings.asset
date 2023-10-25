@@ -12,10 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
+    path: Assets/Scenes/quest1.unity
+    guid: b3cca6c63773e664ebf94570afce4a35
+  - enabled: 1
+    path: Assets/Scenes/quest 2.unity
+    guid: ac547936e68ea9342b28ba1bcc2c5d5e
+  - enabled: 1
+    path: Assets/Scenes/quest 3.unity
+    guid: 3a8911b1c909d124c96df25595fa507e
+  - enabled: 1
     path: Assets/Scenes/Encuesta.unity
     guid: 37c0973eb1d58e5439bf3c4c031a4350
-  m_configObjects:
-    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: be19146df19ea9b4cbcb0c8b3c5a06bc, type: 2}
-    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0b0f8e7335fa7d14f9a791ec16ffaa24, type: 2}
-    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: cb8854a9ee052904c984a02e207199d7, type: 2}
-    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 6b46dcf6035c7b44da116776e9db5a53, type: 2}
+  m_configObjects: {}

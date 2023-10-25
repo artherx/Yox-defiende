@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Golpe : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class Golpe : MonoBehaviour
     public void Toque(Boolean toq){
         if(toq == false) return;
         Vida-=15;
-        if(Vida<1) Destroy(gameObject);
+        if(Vida<1)
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+        }
     }
 }
