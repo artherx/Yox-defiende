@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -7,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Patogeno : MonoBehaviour
 {
     [SerializeField] private VIDABac barraVida;
-
+    public AudioSource audioSource;
     public float speed = 4;
     private float Vida = 150;
     private Vector3 initialPosition;
@@ -21,6 +22,7 @@ public class Patogeno : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         initialPosition = transform.position;
         barraVida.IniciarBarras(Vida);
+        
 
     }
 
@@ -32,6 +34,7 @@ public class Patogeno : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
+            audioSource.Play();
             // Restaurar la posici�n inicial
             Golpe personaje = collision.transform.GetComponent<Golpe>();            transform.position = initialPosition;
             personaje.Toque(true);
